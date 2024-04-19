@@ -18,18 +18,24 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const btns = ref([
   {
     name: "农业农村",
+    path: "/Nongyenongcun",
   },
   {
     name: "渔业资源",
+    path: "/Yuyeziyuan",
   },
 ]);
 const curTab = ref(btns.value[0].name);
 const setTab = (item: any) => {
   curTab.value = item.name;
+  router.push(item.path);
 };
 </script>
 
