@@ -113,7 +113,6 @@ const data = ref([
 }
 .item-box {
   //   border: #2f9ddf 1px solid;
-  position: fixed;
   background-color: rgba(14, 33, 55, 0.9);
   width: 560px;
   height: auto;

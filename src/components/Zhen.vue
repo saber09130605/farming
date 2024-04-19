@@ -85,7 +85,7 @@ const data = ref([
   color: #fff;
   background-color: rgba(14, 33, 55, 0.9);
   // width: 560px;
-  height: auto;
+  height: 230px;
   padding: 20px;
   border-radius: 8px;
   .title {
