@@ -1,34 +1,83 @@
 <template>
   <div class="header-box">
-    <!-- <img src="@/assets/img/LOGO.png" alt="" />
+    <img src="@/assets/img/LOGO.png" alt="" />
     <div class="tab-btn-box">
-      <div v-for="item in btns" :key="item.id">
+      <div
+        class="tab-btn"
+        v-for="item in btns"
+        :key="item.name"
+        :class="{ active: curTab == item.name }"
+        @click="setTab(item)"
+      >
         {{ item.name }}
       </div>
-    </div> -->
-    <img src="@/assets/img/导航.png" alt="" style="width: 100vw" />
+    </div>
+    <!-- <img src="@/assets/img/导航.png" alt="" style="width: 100vw" /> -->
   </div>
 </template>
 
 <script setup lang="ts">
-// import { ref } from "vue";
+import { ref } from "vue";
 
-// const btns = ref([
-//   {
-//     name: "农业农村",
-//     id: 1,
-//   },
-// ]);
+const btns = ref([
+  {
+    name: "农业农村",
+  },
+  {
+    name: "渔业资源",
+  },
+]);
+const curTab = ref(btns.value[0].name);
+const setTab = (item: any) => {
+  curTab.value = item.name;
+};
 </script>
 
 <style scoped lang="scss">
 .header-box {
-  background: radial-gradient(0% 0% at 0% 0%, #030000 0%, #051c2a 100%);
+  background: radial-gradient(0% 0% at 0% 0%, #2479c5 0%, #072233 100%);
   position: fixed;
   top: 0;
   width: 100%;
   height: 80px;
   display: flex;
   align-items: center;
+}
+.tab-btn-box {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  &::before {
+    content: "";
+    background-image: url("@/assets/img/导航未选中.png");
+    width: 20px;
+    height: 35px;
+    background-position-x: right;
+  }
+  &::after {
+    content: "";
+    background-image: url("@/assets/img/导航未选中.png");
+    width: 20px;
+    height: 35px;
+    background-position-x: left;
+  }
+  .tab-btn {
+    background-image: url("@/assets/img/导航未选中.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: rgba($color: #fff, $alpha: 0.7);
+    font-size: 16px;
+    font-weight: 700;
+    width: 160px;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    &.active {
+      background-image: url("@/assets/img/导航选中.png");
+    }
+    &:hover {
+      background-image: url("@/assets/img/导航选中.png");
+    }
+  }
 }
 </style>

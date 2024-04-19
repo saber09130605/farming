@@ -24,15 +24,15 @@ onMounted(() => {
   initSize();
 });
 
-const transform = computed(() => {
-  return `scaleX(${sacleX.value}) scaleY(${sacleY.value})`;
-});
+// const transform = computed(() => {
+//   return `scaleX(${sacleX.value}) scaleY(${sacleY.value})`;
+// });
 const transformY = computed(() => {
   return `scaleY(${sacleY.value})`;
 });
-const transformX = computed(() => {
-  return `scaleX(${sacleX.value})`;
-});
+// const transformX = computed(() => {
+//   return `scaleX(${sacleX.value})`;
+// });
 </script>
 
 <template>
