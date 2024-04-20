@@ -33,6 +33,8 @@ const props = defineProps({
     height: 26px;
     line-height: 26px;
     padding: 8px 15px;
+    background-image: url("@/assets/img/Yuye/title.png");
+    padding-left: 80px;
   }
   .content {
     flex: 1;
