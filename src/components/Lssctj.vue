@@ -13,7 +13,10 @@
         {{ item.name }}
       </div>
     </div>
-    <div class="content-box">
+    <div
+      class="content-box"
+      :style="{ transform: counterStore.backTransformY }"
+    >
       <div class="content-item" style="">
         <img src="@/assets/img/小麦.png" alt="" />
         <div class="content-item-main">
@@ -36,7 +39,10 @@
         </div>
       </div>
     </div>
-    <div class="sub-content-box">
+    <div
+      class="sub-content-box"
+      :style="{ transform: counterStore.backTransformY }"
+    >
       <div class="sub-content-item" style="flex: 1">
         <div>
           <span clas="name">生产面积：</span>
@@ -67,6 +73,8 @@
 import { ref } from "vue";
 import ItemTitle from "./ItemTitle.vue";
 import SubTitle from "./SubTitle.vue";
+import { useCommonStore } from "../store/commonStore";
+const counterStore = useCommonStore();
 const title = ref("粮食生产统计");
 const unit = ref("吨");
 

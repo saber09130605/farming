@@ -6,7 +6,7 @@
       :value="allValue"
       unit="万吨"
     ></SubTitle>
-    <div class="bt-box">
+    <div class="bt-box" :style="{ transform: counterStore.backTransformY }">
       <img class="bj" src="@/assets/img/圆盘.png" alt="" />
       <div class="bt" ref="barChart"></div>
     </div>
@@ -18,6 +18,8 @@ import { onMounted, ref } from "vue";
 import * as echarts from "echarts";
 import ItemTitle from "./ItemTitle.vue";
 import SubTitle from "./SubTitle.vue";
+import { useCommonStore } from "../store/commonStore";
+const counterStore = useCommonStore();
 
 const allValue = ref(16.32);
 const barChart = ref<HTMLElement>();
@@ -101,7 +103,7 @@ const initBarEcharts = () => {
           },
         ],
         radius: ["65", "85%"],
-        center: ["240", "50%"],
+        center: ["45%", "50%"],
       },
     ],
     dataInfo: {},
@@ -120,7 +122,7 @@ onMounted(() => {
   .bj {
     position: absolute;
     height: 214px;
-    left: 132px;
+    left: 19%;
   }
   .bt {
     width: 100%;

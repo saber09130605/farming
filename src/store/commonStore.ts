@@ -22,6 +22,9 @@ export const useCommonStore = defineStore('common', {
     transformY(state): string{
       return `scaleY(${state.sacleY})`
     },
+    backTransformY(state): string{
+      return `scaleX(${state.sacleY})`
+    },
     transformX(state): string{
       return `scaleX(${state.sacleX})`
     },
