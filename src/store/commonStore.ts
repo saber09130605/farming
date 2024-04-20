@@ -10,8 +10,14 @@ export const useCommonStore = defineStore('common', {
         }
   },
   getters: {
+    backTransformX(state): string{
+      return `scaleY(${state.sacleX})`
+    },
     transform(state): string{
       return `scaleX(${state.sacleX}) scaleY(${state.sacleY})`
+    },
+    backTransform(state): string{
+      return `scaleX(${state.sacleY}) scaleY(${state.sacleX})`
     },
     transformY(state): string{
       return `scaleY(${state.sacleY})`
@@ -19,5 +25,6 @@ export const useCommonStore = defineStore('common', {
     transformX(state): string{
       return `scaleX(${state.sacleX})`
     },
+   
   }
 })

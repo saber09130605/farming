@@ -5,7 +5,7 @@ import Header from "./components/Header.vue";
 import Map from "./components/Map.vue";
 import { useCommonStore } from "./store/commonStore";
 const counterStore = useCommonStore();
-console.log({ counterStore });
+// console.log({ counterStore });
 // const store = useStore('common')
 const originalWidth = 2560; //原始宽度
 const originalHeight = 1279; //原始高度
