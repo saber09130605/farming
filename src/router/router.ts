@@ -4,6 +4,7 @@
 import { createRouter,createWebHashHistory } from 'vue-router'
 import Nongyenongcun from "../views/Nongyenongcun.vue"
 import Yuyeziyuan from '../views/Yuyeziyuan.vue'
+import Zhongzhiziyuan from '../views/Zhongzhiziyuan.vue'
 // import App from "../App.vue"
 
 // 3 创建路由对象
@@ -16,10 +17,11 @@ const router = createRouter({
     routes: [
         {
             path:'/',
-            redirect:"/Yuyeziyuan"
+            redirect:"/Zhongzhiziyuan"
         },
         { path: '/Nongyenongcun', component: Nongyenongcun },
-        {path: '/Yuyeziyuan', component: Yuyeziyuan}
+        { path: '/Yuyeziyuan', component: Yuyeziyuan },
+        {path: '/Zhongzhiziyuan', component: Zhongzhiziyuan}
     ],
 })
   

@@ -34,6 +34,7 @@ const props = defineProps({
     line-height: 26px;
     padding: 8px 15px;
     background-image: url("@/assets/img/Yuye/title.png");
+    background-size: cover;
     padding-left: 80px;
   }
   .content {
