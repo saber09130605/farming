@@ -31,25 +31,24 @@
     </YuyeItem>
     <YuyeItem style="margin: 10px 0" title="农业龙头企业">
       <template v-slot>
-        <div class="item-2">
-          <div
-            class="img-box"
-            style="background-image: url('/img/Yuye/编组 11.png')"
-          ></div>
-
-          <div class="item-2-left">
-            <div v-for="item in data3">{{ item }}</div>
+        <div class="left-item-2">
+          <div class="left">
+            <div
+              v-for="item in item2Data"
+              :key="item.value"
+              class="content-item"
+            >
+              <img :src="item.icon" alt="" />
+              <div class="main">
+                <div>
+                  <span style="font-size: 18px">{{ item.value }}</span>
+                  {{ item.unit }}
+                </div>
+                <div>{{ item.name }}</div>
+              </div>
+            </div>
           </div>
-          <div
-            class="item-2-right"
-            :style="{ transform: counterStore.backTransformX }"
-          >
-            <img src="@/assets/img/圆盘.png" alt="" />
-          </div>
-          <div
-            class="img-box"
-            style="background-image: url('/img/Yuye/编组 11备份.png')"
-          ></div>
+          <div class="right"></div>
         </div>
       </template>
     </YuyeItem>
@@ -132,6 +131,27 @@ import YuyeItem from "../components/Yuyeziyuan/YuyeItem.vue";
 import { useCommonStore } from "../store/commonStore";
 import * as echarts from "echarts";
 const counterStore = useCommonStore();
+
+const item2Data = ref([
+  {
+    name: "所属乡镇",
+    value: "高桥镇",
+    unit: "",
+    icon: "/img/大麦.png",
+  },
+  {
+    name: "经营主体或农户数量",
+    value: "10",
+    unit: "个",
+    icon: "/img/大麦.png",
+  },
+  {
+    name: "建筑面积",
+    value: "200",
+    unit: "平方千米",
+    icon: "/img/大麦.png",
+  },
+]);
 
 const echarts0 = ref<HTMLElement>();
 const myChart0 = ref<any>();
@@ -714,54 +734,31 @@ const tableData = ref([
 :deep(.item-3 .el-table__inner-wrapper:before) {
   content: none;
 }
-
-.item-2 {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  transform-origin: top;
+.left-item-2 {
   flex: 1;
-  .img-box {
-    width: 40px;
-    height: 100%;
-    background-size: contain;
-    background-origin: border-box;
-    background-repeat: no-repeat;
-  }
-  // > img {
-  //   height: 300px;
-  // }
-  > div {
-    flex: 1;
-    &:first-child,
-    &:last-child {
-      flex: none;
-    }
-  }
-  .item-2-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    > img {
-      width: 245px;
-    }
-  }
-  .item-2-left {
-    color: #ffffff;
+  display: flex;
+  .left {
+    padding: 10px 0 10px 16px;
     display: flex;
     flex-direction: column;
-    margin-right: 10px;
-    margin-left: 10px;
-    > div {
-      height: 36px;
-      padding-left: 16px;
-      line-height: 36px;
-      background-color: rgb(60 60 109 / 67%);
-      border-radius: 4px;
-      margin-bottom: 20px;
-      &:last-child {
-        margin-bottom: 0;
+    justify-content: space-around;
+    .content-item {
+      width: auto;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      padding-right: 12px;
+      background-color: rgba(49, 125, 170, 1);
+      > img {
+        height: 60px;
+        width: 60px;
+        margin-right: 12px;
+      }
+      .main {
+        flex: 1;
       }
     }
   }

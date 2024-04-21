@@ -102,8 +102,8 @@ const initBarEcharts = () => {
             value: 101,
           },
         ],
-        radius: ["65", "85%"],
-        center: ["45%", "50%"],
+        radius: ["55%", "73%"],
+        center: ["44%", "43.5%"],
       },
     ],
     dataInfo: {},
@@ -139,28 +139,7 @@ onMounted(() => {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  .title-box {
-    background: #484d56;
-    border-radius: 4px;
-    height: 36px;
-    // width: 90%;
-    margin: 16px auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: PingFangSC, PingFang SC;
-    font-weight: 500;
-    font-size: 14px;
-    color: #ffffff;
-    line-height: 22px;
-    text-align: left;
-    font-style: normal;
-    .tips {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.8);
-    }
-  }
+
   .content-tab-box {
     display: flex;
     justify-content: space-around;

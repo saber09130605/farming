@@ -17,7 +17,7 @@ const router = createRouter({
     routes: [
         {
             path:'/',
-            redirect:"/Zhongzhiziyuan"
+            redirect:"/Nongyenongcun"
         },
         { path: '/Nongyenongcun', component: Nongyenongcun },
         { path: '/Yuyeziyuan', component: Yuyeziyuan },
