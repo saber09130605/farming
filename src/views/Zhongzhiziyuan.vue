@@ -2,29 +2,27 @@
   <div class="left-box">
     <YuyeItem title="年度粮食统计">
       <template v-slot>
-        <div class="item-1 left-box-item-content">
-          <div class="item-1-1">
-            <div class="item-1-1-item" v-for="item in data1" :key="item.name">
-              <div style="margin-bottom: 10px">{{ item.name }}</div>
+        <div class="left-item-1">
+          <div class="left">
+            <div class="item" v-for="item in item1Data" :key="item.name">
+              <img :src="item.icon" />
+              <div class="name">{{ item.name }}</div>
               <div>
-                <span style="font-size: 22px">{{ item.value }}</span
-                >{{ item.unit }}
+                <div class="value">{{ item.value1 }}</div>
+                <div class="subname">面积(亩)</div>
+              </div>
+              <div>
+                <div class="value">{{ item.value2 }}</div>
+                <div class="subname">亩产(公斤)</div>
+              </div>
+              <div>
+                <div class="value">{{ item.value3 }}</div>
+                <div class="subname">总产量(吨)</div>
               </div>
             </div>
           </div>
-          <div class="fgx"></div>
-          <div class="item-1-2">
-            <div class="item-1-2-item" v-for="item in data2" :key="item.name">
-              <img
-                :src="item.img"
-                alt=""
-                :style="{ transform: counterStore.backTransformX }"
-              />
-              <div>
-                <div>{{ item.name }}</div>
-                <div class="value">{{ item.value }}{{ item.unit }}</div>
-              </div>
-            </div>
+          <div class="right">
+            <div ref="pie3d"></div>
           </div>
         </div>
       </template>
@@ -48,7 +46,10 @@
               </div>
             </div>
           </div>
-          <div class="right"></div>
+          <div class="right">
+            <img src="/img/testbj.png" alt="" style="margin-bottom: 16px" />
+            <img src="/img/testbj2.png" alt="" />
+          </div>
         </div>
       </template>
     </YuyeItem>
@@ -128,10 +129,41 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import YuyeItem from "../components/Yuyeziyuan/YuyeItem.vue";
-import { useCommonStore } from "../store/commonStore";
+import { set3dpie } from "./ulit";
+// import { useCommonStore } from "../store/commonStore";
+// const counterStore = useCommonStore();
 import * as echarts from "echarts";
-const counterStore = useCommonStore();
 
+const item1Data = ref([
+  {
+    name: "小麦",
+    value1: 378456,
+    value2: 345,
+    value3: 230504,
+    icon: "/img/小麦.png",
+  },
+  {
+    name: "水稻",
+    value1: 453100,
+    value2: 685,
+    value3: 289504,
+    icon: "/img/小麦.png",
+  },
+  {
+    name: "豆类",
+    value1: 20101,
+    value2: 176,
+    value3: 3800,
+    icon: "/img/小麦.png",
+  },
+  {
+    name: "油类",
+    value1: 36690,
+    value2: 175,
+    value3: 6565,
+    icon: "/img/小麦.png",
+  },
+]);
 const item2Data = ref([
   {
     name: "所属乡镇",
@@ -161,8 +193,10 @@ const echarts2 = ref<HTMLElement>();
 const myChart2 = ref<any>();
 const echarts3 = ref<HTMLElement>();
 const myChart3 = ref<any>();
+const pie3d = ref<HTMLElement>();
 
 const initEcharts = () => {
+  set3dpie(pie3d.value);
   myChart0.value = echarts.init(echarts0.value!);
   myChart0.value.setOption({
     grid: [
@@ -487,7 +521,7 @@ const initEcharts = () => {
     graphic: {
       //图形中间文字
       type: "group",
-      left: "28%",
+      left: "30%",
       top: "center",
       children: [
         {
@@ -516,7 +550,6 @@ const initEcharts = () => {
       {
         name: "茶叶年度统计",
         type: "pie",
-        startAngle: 270,
         center: ["38%", "50%"],
         radius: ["50%", "70%"],
         avoidLabelOverlap: false,
@@ -561,84 +594,6 @@ const initEcharts = () => {
 onMounted(() => {
   initEcharts();
 });
-// console.log(56798);
-const data1 = ref([
-  { name: "水产品经济总量", value: 12345, unit: "万元" },
-  { name: "水产品总产量", value: 3602, unit: "吨" },
-  { name: "水产品养殖面积", value: 3602, unit: "公顷" },
-]);
-const data2 = ref([
-  {
-    name: "鱼类养殖产量",
-    value: 36477,
-    unit: "吨",
-    img: "/img/Yuye/编组 9.png",
-  },
-  { name: "甲壳类产量", value: 6873, unit: "吨", img: "/img/Yuye/编组 5.png" },
-  {
-    name: "贝类样式产量",
-    value: 2345,
-    unit: "吨",
-    img: "/img/Yuye/编组 6.png",
-  },
-  {
-    name: "其他水产养殖产量",
-    value: 324,
-    unit: "吨",
-    img: "/img/Yuye/编组 7.png",
-  },
-  {
-    name: "设施养殖面积",
-    value: 3698,
-    unit: "公顷",
-    img: "/img/Yuye/编组 8.png",
-  },
-]);
-const data3 = ref([
-  "企业名称：华盛网络渔业公司",
-  "养殖种类：草鱼",
-  "地址：江苏省镇江市丹徒市（江省镇…",
-  "联系人：苏翊鸣",
-  "联系电话：157****1077",
-]);
-
-const tableData = ref([
-  {
-    name: "苏翊鸣",
-    gm: 150,
-    class: "黑鱼",
-    lxr: "黄胜文",
-    phone: "157****1077",
-  },
-  {
-    name: "高亭宇",
-    gm: 200,
-    class: "草鱼",
-    lxr: "黄胜文",
-    phone: "157****1077",
-  },
-  {
-    name: "孙杨",
-    gm: 20,
-    class: "鲈鱼",
-    lxr: "黄胜文",
-    phone: "157****1077",
-  },
-  {
-    name: "李浩田",
-    gm: 50,
-    class: "黑鱼",
-    lxr: "黄胜文",
-    phone: "157****1077",
-  },
-  {
-    name: "胡锦昱",
-    gm: 80,
-    class: "草鱼",
-    lxr: "黄胜文",
-    phone: "157****1077",
-  },
-]);
 </script>
 
 <style scoped lang="scss">
@@ -650,7 +605,7 @@ const tableData = ref([
   transform-origin: top right;
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 666px;
   .right-box-item1-tips {
     padding: 10px;
     display: flex;
@@ -737,6 +692,20 @@ const tableData = ref([
 .left-item-2 {
   flex: 1;
   display: flex;
+  .right {
+    margin-left: 10px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    box-sizing: border-box;
+    flex-direction: column;
+
+    > img {
+      height: auto;
+    }
+  }
   .left {
     padding: 10px 0 10px 16px;
     display: flex;
@@ -806,7 +775,59 @@ const tableData = ref([
   transform-origin: top left;
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 666px;
+  .left-item-1 {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    .right {
+      flex: 1;
+      > div {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .left {
+      flex-basis: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 20px;
+      .item {
+        background-color: rgba(21, 84, 121, 0.396);
+        display: flex;
+        align-items: center;
+        color: #fff;
+        justify-content: space-between;
+        padding: 0 12px;
+        border-radius: 4px;
+        text-align: center;
+        > img {
+          width: 60px;
+          height: 60px;
+        }
+        .name {
+          background: linear-gradient(
+            0deg,
+            #452ef6,
+            #fff
+          ); // 先设置渐变色背景；
+          background-clip: text;
+          color: transparent;
+          font-size: 18px;
+        }
+        .subname {
+          color: #7373f3;
+          font-size: 14px;
+        }
+        .value {
+          color: #fff;
+          font-size: 20px;
+        }
+      }
+    }
+  }
   .right-box-item1-tips {
     padding: 10px;
     display: flex;
