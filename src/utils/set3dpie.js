@@ -1,11 +1,11 @@
 import * as echarts from "echarts";
 import 'echarts-gl'
-const set3dpie = (dom: HTMLElement | null | undefined) => {
+const set3dpie = (dom) => {
     console.log({dom})
     if (!dom) return;
     var myChart = echarts.init(dom);
 // 生成扇形的曲面参数方程，用于 series-surface.parametricEquation
-function getParametricEquation(startRatio: number, endRatio: number, isSelected: boolean, isHovered: boolean) {
+function getParametricEquation(startRatio, endRatio, isSelected, isHovered) {
     // 计算
     let midRatio = (startRatio + endRatio) / 2;
 
@@ -42,7 +42,7 @@ function getParametricEquation(startRatio: number, endRatio: number, isSelected:
             step: Math.PI / 50,
         },
 
-        x: function (u: number, v: number) {
+        x: function (u, v) {
             if (midRatio - 0.5 < 0) {
                 if (u < startRadian || u > midRadian + Math.PI) {
                     tmp =
@@ -91,7 +91,7 @@ function getParametricEquation(startRatio: number, endRatio: number, isSelected:
             return offsetX + Math.sin(v) * Math.sin(u) * hoverRate;
         },
 
-        y: function (u: number, v: number) {
+        y: function (u, v) {
             if (midRatio - 0.5 < 0) {
                 if (u < startRadian || u > midRadian + Math.PI) {
                     tmp =
@@ -140,13 +140,13 @@ function getParametricEquation(startRatio: number, endRatio: number, isSelected:
             return offsetY + Math.sin(v) * Math.cos(u) * hoverRate;
         },
 
-        z: function (u: any, v: number) {
+        z: function (u, v) {
             return offsetZ + (Math.cos(v) > 0 ? 0.1 : -0.1);
         },
     };
 }
 // 生成模拟 3D 饼图的配置项
-function getPie3D(pieData: string | any[]) {
+function getPie3D(pieData) {
     let series = [];
     let sumValue = 0;
     let startValue = 0;
@@ -221,13 +221,13 @@ function getPie3D(pieData: string | any[]) {
                 max: Math.PI,
                 step: Math.PI / 20,
             },
-            x: function (u: number, v: number) {
+            x: function (u, v) {
                 return Math.sin(v) * Math.sin(u) + Math.sin(u);
             },
-            y: function (u: number, v: number) {
+            y: function (u, v) {
                 return Math.sin(v) * Math.cos(u) + Math.cos(u);
             },
-            z: function (u: any, v: number) {
+            z: function (u, v) {
                 return Math.cos(v) > 0 ? 0.1 : -0.1;
             },
         },
@@ -286,7 +286,7 @@ let selectedIndex = '';
 let hoveredIndex = '';
 
 // 监听点击事件，实现选中效果（单选）
-myChart.on('click', function (params:any) {
+myChart.on('click', function (params) {
     // 从 option.series 中读取重新渲染扇形所需的参数，将是否选中取反。
     let isSelected = !option.series[params.seriesIndex].pieStatus.selected;
     let isHovered = option.series[params.seriesIndex].pieStatus.hovered;
@@ -420,7 +420,7 @@ option.series.push({
     hoverAnimation: false,// 悬停不放大
     label: {
         position: "bottom",
-        formatter: function (params: { percent: any; name: any; }) {
+        formatter: function (params) {
             return `{percentSty|${params.percent}%}\n{nameSty|${params.name}}`;
         },
         rich: {
@@ -472,4 +472,4 @@ option.series.push({
 myChart.setOption(option)
 }
 
-export {set3dpie}
+export {set3dpie};

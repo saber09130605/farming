@@ -129,7 +129,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import YuyeItem from "../components/Yuyeziyuan/YuyeItem.vue";
-import { set3dpie } from "./ulit";
+import { set3dpie } from "../utils/set3dpie";
 // import { useCommonStore } from "../store/commonStore";
 // const counterStore = useCommonStore();
 import * as echarts from "echarts";
