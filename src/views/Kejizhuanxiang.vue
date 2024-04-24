@@ -81,13 +81,65 @@
     </div>
     <div class="right-box">
       <YuyeItem title="乡镇培训开展情况">
-        <template v-slot> </template>
+        <template v-slot>
+          <div class="item-4" style="flex: 1">
+            <div
+              class="img-box"
+              style="background-image: url('/img/Yuye/编组 11.png')"
+            ></div>
+            <div style="flex: 1">
+              <div class="title">农业培训班第105期</div>
+              <img
+                style="width: 100%; margin-top: 6px"
+                src="/img/keji/1713969136849.jpg"
+                alt=""
+              />
+            </div>
+            <div
+              class="img-box"
+              style="background-image: url('/img/Yuye/编组 11备份.png')"
+            ></div>
+          </div>
+        </template>
       </YuyeItem>
-      <YuyeItem title="全年乡镇培训人数统计">
-        <template v-slot> </template>
+      <YuyeItem style="margin: 12px 0" title="全年乡镇培训人数统计">
+        <template v-slot>
+          <div
+            style="flex: 1"
+            ref="echarts2"
+            class="right-box-item-content"
+          ></div>
+        </template>
       </YuyeItem>
       <YuyeItem title="农技员统计">
-        <template v-slot> </template>
+        <template v-slot>
+          <div class="last-item">
+            <div class="main-item">
+              <img
+                style="transform: scale(0.7)"
+                src="/img/keji/main.jpg"
+                alt=""
+              />
+              <div class="main-item-tips">张明 · 水产养殖</div>
+            </div>
+            <div class="last-item-item item-1 left-item">
+              <div style="margin-bottom: 2px">园艺种植</div>
+              <div>103人，占比25%</div>
+            </div>
+            <div class="last-item-item item-2 right-item">
+              <div style="margin-bottom: 2px">水产养殖</div>
+              <div>103人，占比25%</div>
+            </div>
+            <div class="last-item-item item-3 left-item">
+              <div style="margin-bottom: 2px">畜禽养殖</div>
+              <div>103人，占比25%</div>
+            </div>
+            <div class="last-item-item item-4 right-item">
+              <div style="margin-bottom: 2px">稻麦种植</div>
+              <div>103人，占比25%</div>
+            </div>
+          </div>
+        </template>
       </YuyeItem>
     </div>
   </div>
@@ -175,6 +227,9 @@ const curSfxqTabName0 = ref("性别");
 
 const echarts1 = ref<HTMLElement>();
 const myChart1 = ref<any>();
+const echarts2 = ref<HTMLElement>();
+const myChart2 = ref<any>();
+
 const initEcharts = () => {
   myChart1.value = echarts.init(echarts1.value!);
   myChart1.value.setOption({
@@ -270,6 +325,79 @@ const initEcharts = () => {
       },
     ],
   });
+
+  myChart2.value = echarts.init(echarts2.value!);
+  myChart2.value.setOption({
+    grid: [
+      {
+        show: false,
+        bottom: 36,
+      },
+    ],
+    legend: {
+      show: true,
+      right: 20,
+      itemGap: 60,
+      textStyle: {
+        fontSize: 14, //字体大小
+        color: "#ffffff", //字体颜色
+      },
+    },
+    xAxis: {
+      data: ["高桥镇", "辛丰镇", "谷阳镇", "上党镇", "宝堰镇", "世业镇"],
+      axisLabel: {
+        show: true,
+        color: "#fff",
+      },
+    },
+    yAxis: {
+      type: "value",
+      name: "单位：个数",
+      axisLabel: {
+        show: true,
+        color: "#fff",
+      },
+      axisLine: {
+        show: true,
+        color: "#fff",
+      },
+      splitLine: {
+        lineStyle: {
+          type: "dashed",
+        },
+      },
+      nameTextStyle: {
+        color: "#fff",
+      },
+    },
+    series: [
+      {
+        name: "全年乡镇培训人数统计",
+        data: [150, 90, 170, 80, 220, 140],
+        type: "bar",
+        label: {
+          show: true,
+          position: "top",
+        },
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "#83bff6" },
+            { offset: 0.5, color: "#188df0" },
+            { offset: 1, color: "#188df0" },
+          ]),
+        },
+        emphasis: {
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: "#2378f7" },
+              { offset: 0.7, color: "#2378f7" },
+              { offset: 1, color: "#83bff6" },
+            ]),
+          },
+        },
+      },
+    ],
+  });
 };
 onMounted(() => {
   initEcharts();
@@ -277,6 +405,92 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+.item-4 {
+  display: flex;
+  align-items: center;
+  .title {
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    width: 100%;
+    background-image: url("/img/keji/title.png");
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .img-box {
+    width: 40px;
+    height: 100%;
+    background-size: contain;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+  }
+}
+.last-item {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .main-item {
+    position: relative;
+    .main-item-tips {
+      position: absolute;
+      bottom: -10px;
+      width: 133px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+      color: #fff;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-image: url("/img/keji/main_buttom.png");
+    }
+  }
+  .last-item-item {
+    position: absolute;
+
+    width: 172px;
+    height: 57px;
+    font-size: 10px;
+
+    color: #fff;
+    box-sizing: border-box;
+    &.left-item {
+      padding-top: 7px;
+      padding-left: 75px;
+    }
+    &.right-item {
+      padding-top: 7px;
+      padding-right: 75px;
+      text-align: right;
+    }
+
+    &.item-1 {
+      background-image: url("/img/keji/111.png");
+      top: 16px;
+      left: 13px;
+    }
+    &.item-2 {
+      background-image: url("/img/keji/222.png");
+      top: 16px;
+      right: 13px;
+    }
+    &.item-3 {
+      background-image: url("/img/keji/444.png");
+      bottom: 16px;
+      left: 13px;
+    }
+    &.item-4 {
+      background-image: url("/img/keji/333.png");
+      right: 13px;
+      bottom: 16px;
+    }
+  }
+}
 .item-1 {
   flex: 1;
   display: flex;
@@ -376,15 +590,15 @@ onMounted(() => {
   bottom: 15px;
   display: flex;
   > div {
-    width: 600px;
-  }
-  .left-box {
     display: flex;
     flex-direction: column;
-    margin-right: 16px;
+    width: 600px;
     > div {
       flex: 1;
     }
+  }
+  .left-box {
+    margin-right: 16px;
   }
 }
 </style>
