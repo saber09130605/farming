@@ -39,6 +39,10 @@ const btns = ref([
     name: "科技专项",
     path: "/Kejizhuanxiang",
   },
+  {
+    name: "乡村产业",
+    path: "/Xiangcunchanye",
+  },
 ]);
 const curTab = ref(btns.value[0].name);
 const setTab = (item: any) => {
