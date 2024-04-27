@@ -48,7 +48,7 @@ const btns = ref([
     path: "/Nongyexinxi",
   },
   {
-    name: "农业数据",
+    name: "农机数据",
     path: "/Nongjishuju",
   },
   {
