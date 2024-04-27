@@ -1,0 +1,534 @@
+<template>
+  <div class="main">
+    <div class="left-box content-box">
+      <YuyeItem title="物联网平台统计">
+        <template v-slot>
+          <div class="item-1">
+            <div
+              v-for="item in item1Data"
+              :key="item.name"
+              :style="{
+                backgroundImage: `url(/img/xcxx/${item.icon})`,
+                color: item.color,
+              }"
+              class="item-1-item"
+            >
+              <div class="name">{{ item.name }}</div>
+              <div>
+                <span style="font-size: 24px">{{ item.value }}</span
+                >{{ item.unit }}
+              </div>
+            </div>
+          </div>
+        </template>
+      </YuyeItem>
+      <YuyeItem title="乡镇接入视频数量统计" style="margin: 15px 0">
+        <template v-slot> <div style="flex: 1" ref="echarts1"></div> </template
+      ></YuyeItem>
+      <YuyeItem title="物联网终端设备在线状态">
+        <template v-slot>
+          <div
+            class="pt-table"
+            style="height: 100%; box-sizing: border-box; padding: 10px"
+          >
+            <el-table
+              :data="tableData1"
+              style="width: 100%"
+              row-class-name="table-row"
+              header-row-class-name="table-row"
+              header-cell-class-name="table-row"
+              cell-class-name="table-row"
+            >
+              <el-table-column prop="name" label="名称" />
+              <el-table-column prop="id" label="设备ID" />
+              <el-table-column prop="jd" label="经度" />
+              <el-table-column prop="wd" label="纬度" />
+              <el-table-column prop="zx" label="设备在线状态" />
+              <el-table-column prop="number" label="报警数量" />
+            </el-table>
+          </div>
+        </template>
+      </YuyeItem>
+    </div>
+    <div class="middle-box"></div>
+    <div class="right-box content-box">
+      <YuyeItem title="视频监控总量统计">
+        <template v-slot>
+          <div class="pie-box">
+            <div ref="echarts2" style="width: 100%; height: 100%"></div>
+            <div class="echarts2-legend pie-legend">
+              <div
+                v-for="item in echarts2Legend"
+                :key="item.name"
+                :style="{ backgroundImage: `url('${item.img}')` }"
+              >
+                {{ item.name }}
+                <span :style="{ color: item.color }">{{ item.value }}</span>
+              </div>
+            </div>
+          </div>
+        </template>
+      </YuyeItem>
+      <YuyeItem title="物联网设备分布" style="margin: 15px 0">
+        <template v-slot>
+          <div class="echarts3" style="flex: 1" ref="echarts3"></div>
+        </template>
+      </YuyeItem>
+      <YuyeItem title="物联网平台报警信息">
+        <template v-slot>
+          <div
+            class="pt-table"
+            style="height: 100%; box-sizing: border-box; padding: 10px"
+          >
+            <el-table
+              :data="tableData2"
+              style="width: 100%"
+              row-class-name="table-row"
+              header-row-class-name="table-row"
+              header-cell-class-name="table-row"
+              cell-class-name="table-row"
+            >
+              <el-table-column prop="name" label="名称" />
+              <el-table-column prop="time1" label="报警时间" />
+              <el-table-column prop="time2" label="报警解除时间" />
+              <el-table-column prop="value" label="报警值" />
+              <el-table-column prop="de" label="报警详情" />
+            </el-table>
+          </div>
+        </template>
+      </YuyeItem>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import YuyeItem from "../components/Yuyeziyuan/YuyeItem.vue";
+import * as echarts from "echarts";
+import { time } from "console";
+const item1Data = ref([
+  {
+    name: "接入企业数量",
+    value: 31,
+    unit: "家",
+    icon: "96.png",
+    color: "rgba(198, 210, 255, 1)",
+  },
+  {
+    name: "在线传感器",
+    value: 278,
+    unit: "台",
+    icon: "97.png",
+    color: "#C6FEFF",
+  },
+  {
+    name: "在线模块总数",
+    value: 56,
+    unit: "台",
+    icon: "98.png",
+    color: "#FFF9C6",
+  },
+  {
+    name: "接入视频总台数",
+    value: 339,
+    unit: "家",
+    icon: "99.png",
+    color: "#FFC6F7",
+  },
+  {
+    name: "远程设备控制量",
+    value: 33,
+    unit: "台",
+    icon: "910.png",
+    color: "#FFF9C6",
+  },
+  {
+    name: "报警总数",
+    value: 10254,
+    unit: "台",
+    icon: "911.png",
+    color: "#FFE0C6",
+  },
+]);
+const tableData1 = ref([
+  {
+    name: "家庭农场",
+    id: 1180,
+    jd: 119.5646,
+    wd: 31.12564,
+    zx: "在线",
+    number: 10,
+  },
+  {
+    name: "家庭农场",
+    id: 1180,
+    jd: 119.5646,
+    wd: 31.12564,
+    zx: "在线",
+    number: 10,
+  },
+  {
+    name: "家庭农场",
+    id: 1180,
+    jd: 119.5646,
+    wd: 31.12564,
+    zx: "在线",
+    number: 10,
+  },
+  {
+    name: "家庭农场",
+    id: 1180,
+    jd: 119.5646,
+    wd: 31.12564,
+    zx: "在线",
+    number: 10,
+  },
+]);
+
+const tableData2 = ref([
+  {
+    name: "ERH32044",
+    time1: "2024-04-05 11:40:58",
+    time2: "2024-04-05 11:40:58",
+    value: 40.25,
+    de: "9-10大棚 温度过高",
+  },
+  {
+    name: "ERH32044",
+    time1: "2024-04-05 11:40:58",
+    time2: "2024-04-05 11:40:58",
+    value: 40.25,
+    de: "9-10大棚 温度过高",
+  },
+  {
+    name: "ERH32044",
+    time1: "2024-04-05 11:40:58",
+    time2: "2024-04-05 11:40:58",
+    value: 40.25,
+    de: "9-10大棚 温度过高",
+  },
+]);
+
+const echarts2Legend = ref([
+  {
+    name: "养殖类",
+    value: 100,
+    color: "#c9d65e",
+    img: "/img/Yuye/编组 18.png",
+  },
+  {
+    name: "种植类",
+    value: 200,
+    color: "#9441d0",
+    img: "/img/Yuye/编组 18备份.png",
+  },
+  {
+    name: "休闲观光",
+    value: 300,
+    color: "#c95941",
+    img: "/img/Yuye/编组 18备份 2.png",
+  },
+  {
+    name: "加工类",
+    value: 400,
+    color: "#5cbca6",
+    img: "/img/Yuye/编组 18备份 3.png",
+  },
+  {
+    name: "农机类",
+    value: 500,
+    color: "#d69f45",
+    img: "/img/Yuye/编组 18备份 4.png",
+  },
+  {
+    name: "其他",
+    value: 600,
+    color: "#4363d4",
+    img: "/img/Yuye/编组 18备份 5.png",
+  },
+]);
+const echarts1 = ref<HTMLElement>();
+const myChart1 = ref<any>();
+
+const echarts2 = ref<HTMLElement>();
+const myChart2 = ref<any>();
+
+const echarts3 = ref<HTMLElement>();
+const myChart3 = ref<any>();
+const initEcharts = () => {
+  myChart1.value = echarts.init(echarts1.value!);
+  myChart1.value.setOption({
+    grid: [
+      {
+        show: false,
+        bottom: 36,
+      },
+    ],
+    legend: {
+      show: true,
+      top: 10,
+      right: 20,
+      itemGap: 60,
+      textStyle: {
+        fontSize: 14, //字体大小
+        color: "#ffffff", //字体颜色
+      },
+    },
+    xAxis: {
+      data: ["高桥镇", "辛丰镇", "谷阳镇", "上党镇", "宝堰镇", "世业镇"],
+      axisLabel: {
+        show: true,
+        color: "#fff",
+      },
+    },
+    yAxis: {
+      type: "value",
+      name: "单位：个数",
+      axisLabel: {
+        show: true,
+        color: "#fff",
+      },
+      axisLine: {
+        show: true,
+        color: "#fff",
+      },
+      splitLine: {
+        lineStyle: {
+          type: "dashed",
+        },
+      },
+      nameTextStyle: {
+        color: "#fff",
+      },
+    },
+    series: [
+      {
+        name: "全年乡镇培训人数统计",
+        data: [150, 90, 170, 80, 220, 140],
+        type: "bar",
+        label: {
+          show: true,
+          position: "top",
+        },
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "#83bff6" },
+            { offset: 0.5, color: "#188df0" },
+            { offset: 1, color: "#188df0" },
+          ]),
+        },
+        emphasis: {
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: "#2378f7" },
+              { offset: 0.7, color: "#2378f7" },
+              { offset: 1, color: "#83bff6" },
+            ]),
+          },
+        },
+      },
+    ],
+  });
+
+  myChart2.value = echarts.init(echarts2.value!);
+  myChart2.value.setOption({
+    legend: {
+      show: false,
+      right: 45,
+      orient: "vertical",
+      itemGap: 20,
+      textStyle: {
+        fontSize: 16,
+        color: "rgba(255, 255, 255)",
+      },
+      formatter: (name: any) => {
+        let pData = echarts2Legend.value.find((node) => node.name == name);
+        return `${name}   ${pData?.value}`;
+      },
+    },
+    series: [
+      {
+        type: "pie",
+        name: "各乡镇养殖量对比",
+        color: [
+          "#c9d65e",
+          "#9441d0",
+          "#c95941",
+          "#5cbca6",
+          "#d69f45",
+          "#4363d4",
+        ],
+        emphasis: {
+          disabled: true, // 是否关闭高亮状态
+        },
+        tooltip: {
+          show: false, // 是否展示提示框浮层
+        },
+        labelLine: {
+          //图形外文字线
+          normal: {
+            length: 35,
+            length2: 20,
+          },
+        },
+
+        label: {
+          normal: {
+            show: true,
+            formatter: "{name|{b}} {value|{c}}",
+            rich: {
+              name: {
+                color: "#fff",
+              },
+              value: {
+                color: "inherit",
+              },
+            },
+          },
+        },
+        data: echarts2Legend.value,
+        radius: ["50%", "68%"],
+        center: ["35%", "50%"],
+      },
+    ],
+  });
+
+  myChart3.value = echarts.init(echarts3.value!);
+  myChart3.value.setOption({
+    grid: [
+      {
+        show: false,
+        left: 130,
+        right: 30,
+        bottom: 36,
+        top: "10%",
+      },
+    ],
+    xAxis: {
+      axisLabel: {
+        show: true,
+        color: "#fff",
+      },
+      axisLine: {
+        show: true,
+        color: "#fff",
+      },
+      splitLine: {
+        lineStyle: {
+          type: "dashed",
+        },
+      },
+    },
+    yAxis: {
+      type: "category",
+      inverse: true,
+      axisLabel: {
+        show: true,
+        color: "#fff",
+      },
+      axisLine: {
+        show: true,
+        color: "#fff",
+      },
+      splitLine: {
+        lineStyle: {
+          type: "dashed",
+        },
+      },
+      nameTextStyle: {
+        color: "#fff",
+      },
+      data: [
+        "高桥镇",
+        "辛丰镇",
+        "谷阳镇",
+        "上党镇",
+        "宝堰镇",
+        "世业镇",
+        "宜城街道",
+        "江心州生态农业园区",
+        "荣炳盐资源区",
+      ],
+    },
+    series: [
+      {
+        name: "经营主体分布情况",
+        data: [65, 120, 130, 70, 60, 190, 100, 70, 60],
+        type: "bar",
+        showBackground: true,
+        barWidth: 10,
+        barMaxWidth: 20,
+        barMinWidth: 5,
+        label: {
+          show: true,
+          position: "right",
+        },
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "#83bff6" },
+            { offset: 0.5, color: "#188df0" },
+            { offset: 1, color: "#188df0" },
+          ]),
+        },
+        emphasis: {
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: "#2378f7" },
+              { offset: 0.7, color: "#2378f7" },
+              { offset: 1, color: "#83bff6" },
+            ]),
+          },
+        },
+      },
+    ],
+  });
+};
+onMounted(() => {
+  initEcharts();
+});
+</script>
+<style scoped src="../assets/css/common.scss" lang="scss"></style>
+<style scoped lang="scss">
+.main {
+  position: fixed;
+  left: 15px;
+  top: 90px;
+  bottom: 15px;
+  display: flex;
+  right: 15px;
+  .middle-box {
+    flex: 1;
+  }
+  .content-box {
+    width: 570px;
+    display: flex;
+    flex-direction: column;
+    > div {
+      flex: 1;
+    }
+  }
+  .left-box {
+    .item-1 {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      box-sizing: border-box;
+      padding: 40px 0;
+      .item-1-item {
+        width: 169px;
+        height: 77px;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        padding-top: 11px;
+        padding-left: 68px;
+        font-size: 12px;
+        .name {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+</style>
