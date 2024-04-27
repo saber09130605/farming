@@ -105,7 +105,6 @@
 import { ref, onMounted } from "vue";
 import YuyeItem from "../components/Yuyeziyuan/YuyeItem.vue";
 import * as echarts from "echarts";
-import { time } from "console";
 const item1Data = ref([
   {
     name: "接入企业数量",
