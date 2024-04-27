@@ -1,9 +1,14 @@
 <template>
-  <div class="top-box">
-    <Lssctj></Lssctj>
+  <div class="top-box" style="pointer-events: none">
+    <Lssctj style="pointer-events: all"></Lssctj>
     <div class="left-box" style="margin: 15px 0">
       <YuyeItem
-        style="margin-right: 10px; height: 33vh; width: 560px"
+        style="
+          margin-right: 10px;
+          height: 33vh;
+          width: 560px;
+          pointer-events: all;
+        "
         title="农产品基地面积变化"
       >
         <template v-slot>
@@ -17,7 +22,7 @@
       <!-- <Ncpjdmjbh style="margin-right: 10px"></Ncpjdmjbh> -->
       <Zhen style="flex: 1"></Zhen>
     </div>
-    <div class="bottom-box">
+    <div class="bottom-box" style="pointer-events: all">
       <YuyeItem style="flex: 1; margin: 0 5px" title="园艺生产统计">
         <template v-slot>
           <div
@@ -27,7 +32,10 @@
           ></div>
         </template>
       </YuyeItem>
-      <YuyeItem style="flex: 1; margin: 0 5px" title="年末农业机械统计">
+      <YuyeItem
+        style="flex: 1; margin: 0 5px; pointer-events: all"
+        title="年末农业机械统计"
+      >
         <template v-slot>
           <div
             class="item-1"

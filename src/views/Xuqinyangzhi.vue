@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main" style="pointer-events: none">
     <YuyeItem style="width: 588px" title="生猪无害化处理数量统计">
       <template v-slot>
         <div ref="echarts1" style="flex: 1"></div>

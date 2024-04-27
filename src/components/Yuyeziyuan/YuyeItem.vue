@@ -17,6 +17,7 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .item-box {
+  pointer-events: all;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

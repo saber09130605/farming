@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main" style="pointer-events: none">
     <div class="left-box content-box">
       <YuyeItem title="物联网平台统计">
         <template v-slot>

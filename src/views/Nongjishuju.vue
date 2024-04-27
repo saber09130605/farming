@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main" style="pointer-events: none">
     <div class="left-box">
       <!-- 左边 -->
       <YuyeItem title="农机年检统计">
