@@ -1,22 +1,16 @@
 <template>
   <div class="title-box">
-    <div class="title" :style="{ transform: counterStore.backTransformY }">
+    <div class="title">
       {{ props.subtitle }}
     </div>
     <div class="tips">
-      <span
-        style="font-size: 18px"
-        :style="{ transform: counterStore.backTransformY }"
-        >{{ props.value }}</span
-      >
+      <span style="font-size: 18px">{{ props.value }}</span>
       {{ props.unit }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useCommonStore } from "../store/commonStore";
-const counterStore = useCommonStore();
 const props = defineProps({
   subtitle: {
     type: String,
@@ -39,7 +33,7 @@ const props = defineProps({
   border-radius: 4px;
   height: 36px;
   width: 90%;
-  margin: 16px auto;
+  margin: 8px auto;
   padding: 0 20px;
   display: flex;
   align-items: center;

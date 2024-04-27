@@ -93,7 +93,6 @@ onMounted(() => {
   background-color: rgba(14, 33, 55, 0.9);
   // width: 560px;
   height: auto;
-  padding: 20px;
   border-radius: 8px;
 
   .content-tab-box {

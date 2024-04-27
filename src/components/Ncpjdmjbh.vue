@@ -105,28 +105,6 @@ onMounted(() => {
   padding: 20px;
   border-radius: 8px;
 
-  .content-tab-box {
-    display: flex;
-    justify-content: space-around;
-    width: 70%;
-    margin: 10px auto;
-    .content-tab {
-      width: 120px;
-      height: 36px;
-      border: 1px solid #3c5973;
-      border-radius: 2px;
-      font-weight: 400;
-      font-size: 20px;
-      color: #4e7190;
-      line-height: 36px;
-      text-align: center;
-      &.active {
-        border-color: #a3d4ff;
-        color: #ffffff;
-        // background: linear-gradient(90deg, #ffffff 0%, #9fcaff 100%);
-      }
-    }
-  }
   .content-box {
     display: flex;
     margin: 0 auto;

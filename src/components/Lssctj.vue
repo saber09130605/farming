@@ -1,82 +1,82 @@
 <template>
-  <div class="item-box">
+  <YuyeItem class="item-box" :title="title">
+    <template v-slot>
+      <div style="padding: 0 20px 20px">
+        <SubTitle subtitle="全年播种面积" :value="mj" unit="亩"></SubTitle>
+        <div class="content-tab-box">
+          <div
+            v-for="item in shouList"
+            :key="item.id"
+            class="content-tab"
+            :class="{ active: curId == item.id }"
+            @click="setId(item)"
+          >
+            {{ item.name }}
+          </div>
+        </div>
+        <div class="content-box">
+          <div class="content-item" style="">
+            <img src="@/assets/img/小麦.png" alt="" />
+            <div class="content-item-main">
+              <div class="name">小麦</div>
+              <div class="value">{{ data[curId - 1].data.xiaomai }}</div>
+            </div>
+          </div>
+          <div class="content-item">
+            <img src="@/assets/img/大麦.png" alt="" />
+            <div class="content-item-main">
+              <div class="name">元大麦</div>
+              <div class="value">{{ data[curId - 1].data.yuandamai }}</div>
+            </div>
+          </div>
+          <div class="content-item">
+            <img src="@/assets/img/蚕豌豆.png" alt="" />
+            <div class="content-item-main">
+              <div class="name">蚕豌豆</div>
+              <div class="value">{{ data[curId - 1].data.canwandou }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="sub-content-box">
+          <div class="sub-content-item" style="flex: 1">
+            <div>
+              <span clas="name">生产面积：</span>
+              <span class="value">6569.53</span>
+              公顷
+            </div>
+            <div>
+              <span clas="name">较上年：</span>
+              <span class="value" style="color: #f00">5%↑</span>
+            </div>
+          </div>
+          <div>
+            <div>
+              <span clas="name">总产量：</span>
+              <span class="value">31266</span>
+              吨
+            </div>
+            <div>
+              <span clas="name">较上年：</span>
+              <span class="value" style="color: #59ff00">5%↓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+  </YuyeItem>
+  <!-- <div class="item-box">
     <ItemTitle :title="title" :unit="unit"></ItemTitle>
-    <SubTitle subtitle="全年播种面积" :value="mj" unit="亩"></SubTitle>
-    <div class="content-tab-box">
-      <div
-        v-for="item in shouList"
-        :key="item.id"
-        class="content-tab"
-        :class="{ active: curId == item.id }"
-        @click="setId(item)"
-      >
-        {{ item.name }}
-      </div>
-    </div>
-    <div
-      class="content-box"
-      :style="{ transform: counterStore.backTransformY }"
-    >
-      <div class="content-item" style="">
-        <img src="@/assets/img/小麦.png" alt="" />
-        <div class="content-item-main">
-          <div class="name">小麦</div>
-          <div class="value">{{ data[curId - 1].data.xiaomai }}</div>
-        </div>
-      </div>
-      <div class="content-item">
-        <img src="@/assets/img/大麦.png" alt="" />
-        <div class="content-item-main">
-          <div class="name">元大麦</div>
-          <div class="value">{{ data[curId - 1].data.yuandamai }}</div>
-        </div>
-      </div>
-      <div class="content-item">
-        <img src="@/assets/img/蚕豌豆.png" alt="" />
-        <div class="content-item-main">
-          <div class="name">蚕豌豆</div>
-          <div class="value">{{ data[curId - 1].data.canwandou }}</div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="sub-content-box"
-      :style="{ transform: counterStore.backTransformY }"
-    >
-      <div class="sub-content-item" style="flex: 1">
-        <div>
-          <span clas="name">生产面积：</span>
-          <span class="value">6569.53</span>
-          公顷
-        </div>
-        <div>
-          <span clas="name">较上年：</span>
-          <span class="value" style="color: #f00">5%↑</span>
-        </div>
-      </div>
-      <div>
-        <div>
-          <span clas="name">总产量：</span>
-          <span class="value">31266</span>
-          吨
-        </div>
-        <div>
-          <span clas="name">较上年：</span>
-          <span class="value" style="color: #59ff00">5%↓</span>
-        </div>
-      </div>
-    </div>
-  </div>
+    
+  </div> -->
 </template>
 
 <script setup lang="ts">
+import YuyeItem from "./Yuyeziyuan/YuyeItem.vue";
 import { ref } from "vue";
-import ItemTitle from "./ItemTitle.vue";
+// import ItemTitle from "./ItemTitle.vue";
 import SubTitle from "./SubTitle.vue";
-import { useCommonStore } from "../store/commonStore";
-const counterStore = useCommonStore();
 const title = ref("粮食生产统计");
-const unit = ref("吨");
+// const unit = ref("吨");
 
 // const subtitleText = ref("全年播种面积");
 const mj = ref(1047893);
@@ -124,8 +124,8 @@ const data = ref([
   background-color: rgba(14, 33, 55, 0.9);
   width: 560px;
   height: auto;
-  padding: 20px;
   border-radius: 8px;
+  box-sizing: border-box;
 
   .content-tab-box {
     display: flex;
@@ -156,14 +156,15 @@ const data = ref([
     .content-item {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       width: 200px;
       > img {
-        width: 100px;
+        width: 80px;
       }
       .content-item-main {
         text-align: center;
         color: #ffffff;
-        font-size: 24px;
+        font-size: 20px;
         flex: 1;
         // .name {
         // //   font-size: 26px;
