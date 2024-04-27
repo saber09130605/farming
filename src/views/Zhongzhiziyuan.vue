@@ -47,7 +47,13 @@
             </div>
           </div>
           <div class="right">
-            <img src="/img/testbj.png" alt="" style="margin-bottom: 16px" />
+            <el-carousel
+              style="height: 150px; width: 100%; margin-bottom: 16px"
+            >
+              <el-carousel-item v-for="item in bannerData" :key="item">
+                <img style="width: 100%" :src="item" alt="" />
+              </el-carousel-item>
+            </el-carousel>
             <img src="/img/testbj2.png" alt="" />
           </div>
         </div>
@@ -134,6 +140,11 @@ import { set3dpie } from "../utils/set3dpie";
 // const counterStore = useCommonStore();
 import * as echarts from "echarts";
 
+const bannerData = ref<string[]>([
+  "/img/testbj.png",
+  "https://img0.baidu.com/it/u=3076510649,2750240063&fm=253&fmt=auto&app=120&f=JPEG?w=394&h=222",
+  "https://img1.baidu.com/it/u=516543005,1285213367&fm=253&fmt=auto&app=138&f=PNG?w=750&h=500",
+]);
 const item1Data = ref([
   {
     name: "小麦",

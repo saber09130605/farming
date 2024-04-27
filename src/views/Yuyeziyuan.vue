@@ -37,7 +37,12 @@
             <div v-for="item in data3">{{ item }}</div>
           </div>
           <div class="item-2-right">
-            <img src="@/assets/img/圆盘.png" alt="" />
+            <el-carousel style="height: 200px; width: 100%">
+              <el-carousel-item v-for="item in bannerData" :key="item">
+                <img style="width: 100%" :src="item" alt="" />
+              </el-carousel-item>
+            </el-carousel>
+            <!-- <img src="@/assets/img/圆盘.png" alt="" /> -->
           </div>
           <div
             class="img-box"
@@ -112,6 +117,11 @@ const echarts2 = ref<HTMLElement>();
 const myChart2 = ref<any>();
 const echarts3 = ref<HTMLElement>();
 const myChart3 = ref<any>();
+const bannerData = ref<string[]>([
+  "https://t12.baidu.com/it/u=83379620,203651023&fm=30&app=106&f=JPEG?w=640&h=427&s=D03BB7F3B8B9F8CC26B20A7703008076",
+  "https://img2.baidu.com/it/u=202274861,1200480826&fm=253&fmt=auto&app=138&f=JPEG?w=1425&h=800",
+  "https://picx.zhimg.com/v2-51e785d06d568f4416f3ce8529e6f9bf_720w.jpg?source=172ae18b",
+]);
 
 const echarts2Legend = ref([
   {

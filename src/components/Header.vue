@@ -51,10 +51,10 @@ const btns = ref([
     name: "农机数据",
     path: "/Nongjishuju",
   },
-  {
-    name: "畜禽养殖",
-    path: "/Xuqinyangzhi",
-  },
+  // {
+  //   name: "畜禽养殖",
+  //   path: "/Xuqinyangzhi",
+  // },
 ]);
 const curTab = ref(btns.value[0].name);
 const setTab = (item: any) => {
