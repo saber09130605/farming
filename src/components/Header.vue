@@ -51,10 +51,10 @@ const btns = ref([
     name: "农机数据",
     path: "/Nongjishuju",
   },
-  // {
-  //   name: "畜禽养殖",
-  //   path: "/Xuqinyangzhi",
-  // },
+  {
+    name: "畜禽养殖",
+    path: "/Xuqinyangzhi",
+  },
 ]);
 const curTab = ref(btns.value[0].name);
 const setTab = (item: any) => {
@@ -77,6 +77,7 @@ const setTab = (item: any) => {
   display: flex;
   align-items: center;
   margin: 0 20px;
+  flex: 1;
   &::before {
     content: "";
     background-image: url("@/assets/img/导航未选中.png");
@@ -98,7 +99,8 @@ const setTab = (item: any) => {
     color: rgba($color: #fff, $alpha: 0.7);
     font-size: 16px;
     font-weight: 700;
-    width: 160px;
+    flex: 1;
+    width: auto;
     text-align: center;
     height: 35px;
     line-height: 35px;
