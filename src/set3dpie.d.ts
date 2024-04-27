@@ -1,1 +1,0 @@
-declare moudle "set3dpie"
