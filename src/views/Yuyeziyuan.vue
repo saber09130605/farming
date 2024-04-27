@@ -1,5 +1,5 @@
 <template>
-  <div class="left-box" :style="{ transform: counterStore.transformX }">
+  <div class="left-box">
     <YuyeItem title="年度水产统计">
       <template v-slot>
         <div class="item-1 left-box-item-content">
@@ -15,11 +15,7 @@
           <div class="fgx"></div>
           <div class="item-1-2">
             <div class="item-1-2-item" v-for="item in data2" :key="item.name">
-              <img
-                :src="item.img"
-                alt=""
-                :style="{ transform: counterStore.backTransformX }"
-              />
+              <img :src="item.img" alt="" />
               <div>
                 <div>{{ item.name }}</div>
                 <div class="value">{{ item.value }}{{ item.unit }}</div>
@@ -40,10 +36,7 @@
           <div class="item-2-left">
             <div v-for="item in data3">{{ item }}</div>
           </div>
-          <div
-            class="item-2-right"
-            :style="{ transform: counterStore.backTransformX }"
-          >
+          <div class="item-2-right">
             <img src="@/assets/img/圆盘.png" alt="" />
           </div>
           <div
@@ -77,7 +70,7 @@
       </template>
     </YuyeItem>
   </div>
-  <div class="right-box" :style="{ transform: counterStore.transformX }">
+  <div class="right-box">
     <YuyeItem title="规模渔场分布统计">
       <template v-slot>
         <div ref="echarts1" class="right-box-item-content"></div>
@@ -85,10 +78,7 @@
     </YuyeItem>
     <YuyeItem title="各乡镇养殖量对比">
       <template v-slot>
-        <div
-          :style="{ transform: counterStore.backTransformX }"
-          class="right-box-item-content"
-        >
+        <div class="right-box-item-content">
           <div ref="echarts2" style="width: 100%; height: 100%"></div>
           <div class="echarts2-legend">
             <div
