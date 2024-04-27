@@ -616,7 +616,7 @@ onMounted(() => {
   transform-origin: top right;
   display: flex;
   flex-direction: column;
-  width: 666px;
+  width: 500px;
   .right-box-item1-tips {
     padding: 10px;
     display: flex;
@@ -786,7 +786,7 @@ onMounted(() => {
   transform-origin: top left;
   display: flex;
   flex-direction: column;
-  width: 666px;
+  width: 600px;
   .left-item-1 {
     display: flex;
     flex: 1;
