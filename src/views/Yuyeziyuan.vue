@@ -104,9 +104,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import YuyeItem from "../components/Yuyeziyuan/YuyeItem.vue";
-import { useCommonStore } from "../store/commonStore";
 import * as echarts from "echarts";
-const counterStore = useCommonStore();
 
 const echarts1 = ref<HTMLElement>();
 const myChart1 = ref<any>();
