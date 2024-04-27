@@ -96,6 +96,8 @@ const data = ref([
   // width: 560px;
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 18px 18px 18px rgb(1 28 51), 18px -18px 18px rgb(1 28 51),
+    -18px 18px 18px rgb(1 28 51), -18px -18px 18px rgb(1 28 51);
   .title {
     background-image: url("@/assets/img/XXX镇台.png");
     background-size: cover;

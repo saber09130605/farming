@@ -79,7 +79,7 @@
           </div>
         </template>
       </YuyeItem>
-      <YuyeItem title="农机数量统计">
+      <YuyeItem title="农机数量统计" style="margin: 15px 0">
         <template v-slot>
           <div class="item-2 left-box-item-content">
             <div class="totel">农机总数：<span class="num">29658</span>台</div>
@@ -88,7 +88,7 @@
         </template>
       </YuyeItem>
 
-      <YuyeItem title="各乡镇农机分布">
+      <YuyeItem title="各乡镇农机分布" style="height: 315px">
         <template v-slot>
           <div class="left-box-item-content">
             <div ref="echarts2" style="width: 100%; height: 100%"></div>
@@ -107,9 +107,10 @@
       </YuyeItem>
     </div>
     <div class="center-box">
-      <YuyeItem title="驾驶证业务统计">
+      <div style="flex: 1; margin: 15px 0"></div>
+      <YuyeItem title="驾驶证业务统计" style="height: 315px">
         <template v-slot>
-          <div style="height: 280px">
+          <div style="flex: 1">
             <div ref="echarts3" class="echartBox"></div>
           </div>
         </template>
@@ -124,7 +125,7 @@
         </template>
       </YuyeItem>
 
-      <YuyeItem title="农机服务组织人员及投入产出情况">
+      <YuyeItem title="农机服务组织人员及投入产出情况" style="margin: 15px 0">
         <template v-slot>
           <el-row>
             <el-col :span="8" v-for="(item, idx) in item5Data.data1" :key="idx">
@@ -161,7 +162,7 @@
         </template>
       </YuyeItem>
 
-      <YuyeItem title="执法检查统计">
+      <YuyeItem title="执法检查统计" style="height: 315px">
         <template v-slot>
           <div class="item-6">
             <div class="content">
@@ -172,8 +173,8 @@
                   background-size: contain;
                   padding: 0px;
                   padding-left: 23px;
-                  height: 25px;
-                  line-height: 25px;
+                  height: 23px;
+                  line-height: 23px;
                   margin: 8px;
                 "
               >
@@ -186,8 +187,11 @@
                   :key="idx"
                 >
                   <div
-                    class="item bgcenter"
-                    style="background-image: url('/img/Nongji/item61.png')"
+                    class="last-item-item"
+                    style="
+                      background-image: url('/img/Nongji/item61.png');
+                      color: #b0d9ff;
+                    "
                   >
                     <p>{{ item.title }}</p>
                     <p>{{ item.num }}</p>
@@ -203,8 +207,8 @@
                   background-size: contain;
                   padding: 0px;
                   padding-left: 23px;
-                  height: 25px;
-                  line-height: 25px;
+                  height: 23px;
+                  line-height: 23px;
                   margin: 8px;
                 "
               >
@@ -217,10 +221,10 @@
                   :key="idx"
                 >
                   <div
-                    class="item bgcenter"
+                    class="last-item-item"
                     style="background-image: url('/img/Nongji/item62.png')"
                   >
-                    <p>{{ item.title }}</p>
+                    <p style="color: #ffe3b0">{{ item.title }}</p>
                     <p>{{ item.num }}</p>
                   </div>
                 </el-col>
@@ -234,8 +238,8 @@
                   background-size: contain;
                   padding: 0px;
                   padding-left: 23px;
-                  height: 25px;
-                  line-height: 25px;
+                  height: 23px;
+                  line-height: 23px;
                   margin: 8px;
                 "
               >
@@ -248,8 +252,11 @@
                   :key="idx"
                 >
                   <div
-                    class="item bgcenter"
-                    style="background-image: url('/img/Nongji/item63.png')"
+                    class="last-item-item"
+                    style="
+                      background-image: url('/img/Nongji/item63.png');
+                      color: #ffb7b0;
+                    "
                   >
                     <p>{{ item.title }}</p>
                     <p>{{ item.num }}</p>

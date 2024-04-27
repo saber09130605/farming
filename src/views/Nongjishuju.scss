@@ -63,7 +63,8 @@ div {
     display: flex;
     padding: 0 10px;
     flex-direction: column;
-
+    flex: 1;
+    justify-content: space-between;
     .bgcenter {
         background: no-repeat;
         padding: 6px 11px 20px 60px;
@@ -104,6 +105,7 @@ div {
     align-self: flex-end;
     flex: 1;
     margin: 0 15px;
+    height: 100%;
 }
 .main {
     position: fixed;
@@ -121,17 +123,7 @@ div {
     width: 500px;
 
     >div {
-        flex: 1;
-        margin: 10px 0;
-
-        &:first-child {
-            margin-top: 0;
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
+        flex-basis: 33%;
         .right-box-item-content {
             flex: 1;
             position: relative;
@@ -155,17 +147,7 @@ div {
     width: 500px;
 
     >div {
-        flex: 1;
-        margin: 6px 0;
-
-        &:first-child {
-            margin-top: 0;
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
+        flex-basis: 33%;
         .left-box-item-content {
             flex: 1;
             position: relative;
@@ -175,5 +157,25 @@ div {
     .item-1 {
         padding: 10px;
         transform-origin: top;
+    }
+}
+
+
+.last-item-item {
+    width: 149px;
+    height: 48px;
+    padding-top: 5px;
+    padding-left: 55px;
+    box-sizing: border-box;
+    > p{
+        &:first-child {
+            font-weight: 400;
+            font-size: 10px;
+        }
+        &:last-child {
+            font-weight: 500;
+            font-size: 20px;
+            color: #FFFFFF;
+        }
     }
 }

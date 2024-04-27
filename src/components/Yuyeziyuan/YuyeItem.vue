@@ -21,7 +21,10 @@ const props = defineProps({
   flex-direction: column;
   justify-content: space-between;
   background-color: rgba(14, 33, 55, 0.9);
+  border: 1px solid #264c67;
   border-radius: 8px;
+  box-shadow: 18px 18px 18px rgb(1 28 51), 18px -18px 18px rgb(1 28 51),
+    -18px 18px 18px rgb(1 28 51), -18px -18px 18px rgb(1 28 51);
   .title {
     font-family: PingFangSC, PingFang SC;
     font-weight: 600;
