@@ -429,7 +429,7 @@ onMounted(() => {
 .main {
   position: fixed;
   right: 15px;
-  top: 90px;
+  top: 80px;
   bottom: 15px;
   display: flex;
   flex-direction: column;

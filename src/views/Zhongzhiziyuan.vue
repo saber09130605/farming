@@ -612,7 +612,7 @@ onMounted(() => {
   position: fixed;
   right: 15px;
   bottom: 15px;
-  top: 90px;
+  top: 80px;
   transform-origin: top right;
   display: flex;
   flex-direction: column;
@@ -782,7 +782,7 @@ onMounted(() => {
   bottom: 15px;
   // padding-bottom: 15px;
   box-sizing: border-box;
-  top: 90px;
+  top: 80px;
   transform-origin: top left;
   display: flex;
   flex-direction: column;

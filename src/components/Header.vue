@@ -55,6 +55,10 @@ const btns = ref([
     name: "畜禽养殖",
     path: "/Xuqinyangzhi",
   },
+  {
+    name: "乡村建设",
+    path: "/Xiangecunjianshe",
+  },
 ]);
 const curTab = ref(btns.value[0].name);
 const setTab = (item: any) => {
@@ -69,7 +73,7 @@ const setTab = (item: any) => {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 80px;
+  height: 74px;
   display: flex;
   align-items: center;
 }

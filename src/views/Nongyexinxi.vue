@@ -491,7 +491,7 @@ onMounted(() => {
 .main {
   position: fixed;
   left: 15px;
-  top: 90px;
+  top: 80px;
   bottom: 15px;
   display: flex;
   right: 15px;

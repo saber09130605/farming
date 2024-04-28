@@ -10,6 +10,7 @@ import Xiangcunchanye from "../views/Xiangcunchanye.vue"
 import Nongyexinxi from "../views/Nongyexinxi.vue"
 import Xuqinyangzhi from '../views/Xuqinyangzhi.vue'
 import Nongjishuju from '../views/Nongjishuju.vue'
+import Xiangecunjianshe from '../views/Xiangecunjianshe.vue'
 // import App from "../App.vue"
 
 // 3 创建路由对象
@@ -32,6 +33,7 @@ const router = createRouter({
         { path: '/Nongyexinxi', component: Nongyexinxi },
         { path: '/Xuqinyangzhi', component: Xuqinyangzhi },
         { path: '/Nongjishuju', component: Nongjishuju },
+        { path: '/Xiangecunjianshe', component: Xiangecunjianshe },
         
     ],
 })
