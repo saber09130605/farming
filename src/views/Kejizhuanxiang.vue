@@ -87,16 +87,28 @@
               class="img-box"
               style="background-image: url('/img/Yuye/编组 11.png')"
             ></div>
-            <div style="flex: 1">
-              <div class="title">农业培训班第105期</div>
+            <div style="flex: 1; margin: 0 24px">
+              <div class="title" style="margin-bottom: 10px">
+                农业培训班第105期
+              </div>
               <div style="display: flex; align-items: center">
-                <div style="flex: 3; color: #fff; line-height: 40px">
-                  <p>《现代农业产业发展战略》</p>
-                  <p>讲师:李昕皓</p>
-                  <p>地址:镇江市丹徒区上党镇金河路</p>
-                  <p>时间:2024-04-01</p>
+                <div style="flex: 3; color: #fff; line-height: 26px">
+                  <div
+                    style="
+                      background-color: rgba(0, 0, 0, 0.6);
+                      padding-left: 10px;
+                    "
+                  >
+                    培训介绍
+                  </div>
+                  <div style="padding-left: 10px">《现代农业产业发展战略》</div>
+                  <div style="padding-left: 10px">讲师:李昕皓</div>
+                  <div style="padding-left: 10px">
+                    地址:镇江市丹徒区上党镇金河路
+                  </div>
+                  <div style="padding-left: 10px">时间:2024-04-01</div>
                 </div>
-                <el-carousel style="flex: 7">
+                <el-carousel style="flex: 7; height: 150px">
                   <el-carousel-item v-for="item in bannerData" :key="item">
                     <img style="width: 100%" :src="item" alt="" />
                   </el-carousel-item>
@@ -423,6 +435,8 @@ onMounted(() => {
 .item-4 {
   display: flex;
   align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
   .title {
     height: 38px;
     line-height: 38px;
@@ -436,11 +450,12 @@ onMounted(() => {
     background-repeat: no-repeat;
   }
   .img-box {
-    width: 40px;
+    width: 25px;
     height: 100%;
     background-size: contain;
     background-origin: border-box;
     background-repeat: no-repeat;
+    background-position: center;
   }
 }
 .last-item {
