@@ -299,8 +299,8 @@ const item6Data = {
 var currentIndex = ref(0);
 const images = [
   "/public/img/zuoye/lbt2.png",
-  "/public/img/zuoye/item4-1.png",
-  "/public/img/zuoye/item4-2.png",
+  "/public/img/zuoye/lbt2.png",
+  "/public/img/zuoye/lbt2.png",
 ];
 
 onMounted(() => {
