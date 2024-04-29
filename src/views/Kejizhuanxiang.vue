@@ -89,11 +89,19 @@
             ></div>
             <div style="flex: 1">
               <div class="title">农业培训班第105期</div>
-              <img
-                style="width: 100%; margin-top: 6px"
-                src="/img/keji/1713969136849.jpg"
-                alt=""
-              />
+              <div style="display: flex; align-items: center">
+                <div style="flex: 3; color: #fff; line-height: 40px">
+                  <p>《现代农业产业发展战略》</p>
+                  <p>讲师:李昕皓</p>
+                  <p>地址:镇江市丹徒区上党镇金河路</p>
+                  <p>时间:2024-04-01</p>
+                </div>
+                <el-carousel style="flex: 7">
+                  <el-carousel-item v-for="item in bannerData" :key="item">
+                    <img style="width: 100%" :src="item" alt="" />
+                  </el-carousel-item>
+                </el-carousel>
+              </div>
             </div>
             <div
               class="img-box"
@@ -150,6 +158,13 @@ import YuyeItem from "../components/Yuyeziyuan/YuyeItem.vue";
 import * as echarts from "echarts";
 // console.log("Kejizhuanxiang");
 import { ref, onMounted } from "vue";
+
+const bannerData = ref<string[]>([
+  "https://manager.ynggwhy.cn/file/group7/M00/00/11/rNwBhGKO2dmEQffKAAAAABM9qJs709.jpg",
+  "https://manager.ynggwhy.cn/file/group7/M00/00/12/rNwBhGKO2dyEWdDKAAAAAHfoCEI244.jpg",
+  "https://manager.ynggwhy.cn/file/group7/M00/00/11/rNwBhGKO2c2EOYw1AAAAAO2IaqI383.jpg",
+]);
+
 const tableData1 = ref([
   {
     name: "孙杨",
