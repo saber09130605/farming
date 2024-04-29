@@ -127,6 +127,10 @@ const btns = ref([
     path: "/Nongjishuju",
   },
   {
+    name: "农机作业",
+    path: "/Nongjizuoye",
+  },
+  {
     name: "畜禽养殖",
     path: "/Xuqinyangzhi",
   },
@@ -173,7 +177,7 @@ const setTab = (item: any) => {
   }
   .tab-btn {
     background-image: url("@/assets/img/导航未选中.png");
-    background-size: contain;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     color: rgba($color: #fff, $alpha: 0.7);
     font-size: 16px;

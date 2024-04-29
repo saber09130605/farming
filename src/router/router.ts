@@ -34,6 +34,7 @@ const router = createRouter({
         { path: '/Xuqinyangzhi', component: Xuqinyangzhi },
         { path: '/Nongjishuju', component: Nongjishuju },
         { path: '/Xiangecunjianshe', component: Xiangecunjianshe },
+        {path: '/Nongjizuoye', component: ()=>import("@/views/Nongjizuoye.vue")}
         
     ],
 })

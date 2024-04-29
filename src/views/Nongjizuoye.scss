@@ -1,0 +1,305 @@
+div {
+    color: #ffffff;
+}
+
+.echartBox {
+    height: 100%;
+}
+
+.bgcenter {
+    background-size: cover;
+    background: center center no-repeat;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.totel {
+    text-align: right;
+    height: 0px;
+}
+
+.num {
+    font-size: 22px;
+    color: aqua;
+    padding-top: 16px;
+}
+
+.subbox {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        flex: 1;
+        line-height: 5px;
+    }
+}
+
+.item-1 {
+    .subtitle {
+        width: 146px;
+        height: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+
+.item-2 {
+    display: flex;
+    padding: 0 20px;
+    flex-direction: column;
+    justify-content: center;
+
+    .item-3 {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.item-6 {
+    display: flex;
+    padding: 0 10px;
+    flex-direction: column;
+
+    .bgcenter {
+        background: no-repeat;
+        padding: 6px 11px 20px 60px;
+        background-size: contain;
+    }
+
+    >div {
+        flex: 1;
+    }
+}
+
+
+
+
+.echarts2-legend {
+    position: absolute;
+    right: 18px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    >div {
+        height: 36px;
+        line-height: 36px;
+        padding-left: 36px;
+        background-size: cover;
+
+        font-size: 16px;
+        color: #ffffff;
+    }
+}
+
+.center-box {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    flex: 1;
+    margin: 0 15px;
+
+    &-left {
+        width: 30%;
+        padding: 5%;
+
+        .box1,
+        .box2 {
+            min-height: 85px;
+            margin: 10px 0px;
+            padding-left: 50%;
+        }
+
+        .box1 span {
+            color: #b0d9ff;
+        }
+
+        .box2 span {
+            color: #FFD1A6;
+        }
+    }
+
+    &-right {
+        width: 70%;
+    }
+}
+
+// .carousel-inner {
+//     display: flex;
+//     transition: transform 0.5s ease;
+// }
+
+// .carousel-item {
+//     width: 100%;
+//     flex-shrink: 0;
+// }
+
+// .carousel-item.active {
+//     display: block;
+// }
+
+// img {
+//     width: 100%;
+//     height: auto;
+// }
+
+.carousel {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-images {
+    position: relative;
+    overflow: hidden;
+    width: 60%;
+    padding: 0px 20%;
+    z-index: 999;
+}
+
+.carousel-image {
+    width: 80%;
+    margin-left: 10%;
+    display: none;
+}
+
+.carousel-image:first-child {
+    display: block;
+}
+
+.carousel-controls {
+    text-align: center;
+    background: red;
+}
+
+.carousel-thumbnails {
+    display: flex;
+    position: relative;
+    top: -45%;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.carousel-thumbnail {
+    width: 20%;
+    height: auto;
+    opacity: 0.8;
+}
+
+.carousel-thumbnail:hover {
+    opacity: 1;
+}
+
+//   【【
+
+.main {
+    position: fixed;
+    top: 90px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    display: flex;
+    box-sizing: border-box;
+    pointer-events: none
+}
+
+.right-box {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+
+    >div {
+        flex: 1;
+        margin: 10px 0;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .right-box-item-content {
+            flex: 1;
+            position: relative;
+        }
+    }
+
+    .subbox {
+        height: 80px;
+
+        p {
+            line-height: 36px;
+        }
+    }
+}
+
+.left-box {
+    // padding-bottom: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+
+    >div {
+        flex: 1;
+        margin: 6px 0;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .left-box-item-content {
+            flex: 1;
+            position: relative;
+        }
+    }
+
+    .item-1 {
+        padding: 10px;
+        transform-origin: top;
+    }
+}
+
+.item4 {
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 65%;
+    padding-bottom: 5%;
+
+    .box {
+        box-sizing: border-box;
+        width: 28%;
+        height: 38%;
+        padding: 10px;
+        margin: 10px;
+        display: flex;
+
+        &-left {
+            width: 45%;
+        }
+
+        &-right {
+            line-height: 20px;
+        }
+
+        .num2 {
+            font-size: 24px;
+        }
+    }
+}

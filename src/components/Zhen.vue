@@ -1,15 +1,8 @@
 <template>
   <div class="item-box">
-    <div class="title" :style="{ transform: counterStore.backTransformY }">
-      XXX镇
-    </div>
+    <div class="title">XXX镇</div>
     <div class="content-box">
-      <div
-        v-for="item in data"
-        :key="item.name"
-        class="item"
-        :style="{ transform: counterStore.backTransformY }"
-      >
+      <div v-for="item in data" :key="item.name" class="item">
         {{ item.name }}： <span style="font-size: 18px">{{ item.value }}</span>
         {{ item.unit }}
       </div>
@@ -20,8 +13,6 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { useCommonStore } from "../store/commonStore";
-const counterStore = useCommonStore();
 
 const data = ref([
   {
